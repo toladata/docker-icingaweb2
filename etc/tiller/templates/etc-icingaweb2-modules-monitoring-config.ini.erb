@@ -1,0 +1,6 @@
+# /etc/icingaweb2/modules/monioring/config.ini
+
+<%- if env_security -%>
+[security]
+protected_customvars = "<%= env_icingaweb2_security_protected_customvars %>"
+<%- end -%>

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+HOST="<%= env_icingaweb2_resources_icingaweb2_host %>"
+PORT="<%= env_icingaweb2_resources_icingaweb2_port %>"
+DATABASE_NAME="<%= env_icingaweb2_resources_icingaweb2_dbname %>"
+USERNAME="<%= env_icingaweb2_resources_icingaweb2_username %>"
+PASSWORD="<%= env_icingaweb2_resources_icingaweb2_password %>"
+
+<%- if env_icingaweb2_resources_icingaweb2 -%>
+<%- if env_icingaweb2_resources_icingaweb2_db == 'pgsql' -%>
+export PGPASSWORD="${PASSWORD}"
+QUERY="select count(*) from information_schema.tables where table_catalog = '${DATABASE_NAME}';"
+TABLE_COUNT=$(psql --host="${HOST}" --port="${PORT}" --username="${USERNAME}" ${DATABASE_NAME} -A -t -c "${QUERY}")
+if [ "$TABLE_COUNT" -le "0" ]; then
+    psql --host="${HOST}" --port="${PORT}" --username="${USERNAME}" ${DATABASE_NAME} < /usr/share/icingaweb2/etc/schema/pgsql.schema.sql
+fi
+<%- elsif env_icingaweb2_resources_icingaweb2_db == 'mysql' -%>
+QUERY="SELECT COUNT(*) FROM information_schema.tables WHERE table_catalog = '${DATABASE_NAME}';"
+TABLE_COUNT=$(mysql --user="${USER}" --password="${PASSWORD}" -N -se "${QUERY}")
+if [ "$TABLE_COUNT" -le "0" ]; then
+    mysql --user="${USER}" --password="${PASSWORD}" ${DATABASE_NAME} < /usr/share/icingaweb2/etc/schema/mysql.schema.sql
+fi
+<%- end -%>
+<%- end -%>

@@ -1,0 +1,51 @@
+data_sources:
+  - file
+  - environment
+  - defaults
+template_sources:
+  - file
+defaults:
+  global:
+    icingaweb2_authentication: true
+    icingaweb2_authentication_backend: external
+    icingaweb2_resources_icinga2: false
+    icingaweb2_resources_icinga2_db: mysql
+    icingaweb2_resources_icinga2_host: localhost
+    icingaweb2_resources_icinga2_port: 3306
+    icingaweb2_resources_icinga2_dbname: icinga2
+    icingaweb2_resources_icinga2_username: icinga2
+    icingaweb2_resources_icinga2_password: icinga2
+    icingaweb2_resources_icinga2_charset: UTF8
+    icingaweb2_resources_icingaweb2: false
+    icingaweb2_resources_icingaweb2_db: icingaweb2
+    icingaweb2_resources_icingaweb2_host: localhost
+    icingaweb2_resources_icingaweb2_port: 3306
+    icingaweb2_resources_icingaweb2_dbname: icingaweb2
+    icingaweb2_resources_icingaweb2_username: icingaweb2
+    icingaweb2_resources_icingaweb2_password: icingaweb2
+    icingaweb2_resources_icingaweb2_charset: UTF8
+    icingaweb2_security: true
+    icingaweb2_security_protected_customvars: ""
+    icingaweb2_commandtransport_api: true
+    icingaweb2_commandtransport_api_host: localhost
+    icingaweb2_commandtransport_api_port: 5666
+    icingaweb2_commandtransport_api_username: icinga2
+    icingaweb2_commandtransport_api_password: icinga2
+environments:
+  development:
+    etc-icingaweb2-authentication.ini.erb:
+      target: /etc/icingaweb2/authentication.ini
+    etc-icingaweb2-config.ini.erb:
+      target: /etc/icingaweb2/config.ini
+    etc-icingaweb2-resources.ini.erb:
+      target: /etc/icingaweb2/resources.ini
+    etc-icingaweb2-roles.ini.erb:
+      target: /etc/icingaweb2/roles.ini
+    etc-icingaweb2-modules-monitoring-backends.ini.erb:
+      target: /etc/icingaweb2/modules/monitoring/backends.ini
+    etc-icingaweb2-modules-monitoring-commandtransports.ini.erb:
+      target: /etc/icingaweb2/modules/monitoring/commandtransports.ini
+    etc-icingaweb2-modules-monitoring-config.ini.erb:
+      target: /etc/icingaweb2/modules/monitoring/config.ini
+    usr-bin-icingaweb2_migrate_sh.erb:
+      target: /usr/bin/icingaweb2-migrate.sh

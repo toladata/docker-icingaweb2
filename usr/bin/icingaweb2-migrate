@@ -1,0 +1,3 @@
+#!/bin/bash
+
+[ -e "/usr/bin/icingaweb2-migrate.sh" ] && source /usr/bin/icingaweb2-migrate.sh

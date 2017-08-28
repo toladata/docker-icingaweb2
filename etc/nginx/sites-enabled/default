@@ -1,0 +1,46 @@
+server {
+  listen *:80;
+
+  root /usr/share/icingaweb2/public; #Path of icinga2 web directory
+  index index.php;
+
+  access_log /dev/stdout; 
+  error_log /dev/stdout;
+
+  location = /favicon.ico {
+    log_not_found off;
+    access_log off;
+    expires max;
+  }
+
+  location ~ /\. {
+    deny all;
+    access_log off;
+    log_not_found off;
+  }
+
+  location ~ \..*/.*\.php$ {
+    return 403;
+  }
+
+  if (!-d $request_filename) {
+    rewrite ^/(.+)/$ /$1 permanent;
+  }
+
+  location / {
+    try_files $1 $uri $uri/ /index.php$is_args$args;
+  }
+
+  proxy_pass_request_headers      on;
+
+  location ~ ^/index\.php(.*)$ {
+    fastcgi_index index.php;
+    include /etc/nginx/fastcgi_params;
+    try_files $uri =404;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME /usr/share/icingaweb2/public/index.php;
+    fastcgi_param ICINGAWEB_CONFIGDIR /etc/icingaweb2;
+    fastcgi_param REMOTE_USER $remote_user;
+  }
+}

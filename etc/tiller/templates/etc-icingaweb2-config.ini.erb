@@ -1,0 +1,11 @@
+# /etc/icingaweb2/config.ini
+[logging]
+log                 = "stdout"
+level               = "INFO"
+application         = "icingaweb2"
+
+<%- if env_icingaweb2_resources_icinga2 -%>
+[preferences]
+type                = "db"
+resource            = "icingaweb2"
+<%- end -%>

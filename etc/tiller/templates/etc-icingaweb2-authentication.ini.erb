@@ -1,8 +1,9 @@
 # /etc/icingaweb2/authentication.ini
-
 <%- if not env_icingaweb2_authentication -%>
+
 [icingaweb2]
 backend = "external"
+
 <%- else -%>
 [icingaweb2]
 strip_username_regexp = ""
@@ -12,6 +13,7 @@ backend = "<%= env_icingaweb2_authentication_backend %>"
 [autologin]
 backend = external
 <%- end -%>
+
 <%- if env_icingaweb2_authentication_backend == 'db' -%>
 [auth_db]
 backend = db

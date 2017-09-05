@@ -47,5 +47,7 @@ environments:
       target: /etc/icingaweb2/modules/monitoring/commandtransports.ini
     etc-icingaweb2-modules-monitoring-config.ini.erb:
       target: /etc/icingaweb2/modules/monitoring/config.ini
+    etc-icingaweb2-modules-director-config.ini.erb:
+      target: /etc/icingaweb2/modules/director/config.ini
     usr-bin-icingaweb2_migrate_sh.erb:
       target: /usr/bin/icingaweb2-migrate.sh

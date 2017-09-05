@@ -21,4 +21,7 @@ if [ "$TABLE_COUNT" -le "0" ]; then
     mysql --user="${USER}" --password="${PASSWORD}" ${DATABASE_NAME} < /usr/share/icingaweb2/etc/schema/mysql.schema.sql
 fi
 <%- end -%>
+
+icingacli director migration run --verbose
+icingacli director migration pending --verbose
 <%- end -%>

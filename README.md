@@ -1,29 +1,6 @@
-# Dockerized icingaweb2 application
+# docker-icingaweb2
 
-## Environment variables
+Dockerized icingaweb2 instance.
 
-* ICINGAWEB2_AUTHENTICATION (default: true)
-* ICINGAWEB2_AUTHENTICATION_BACKEND (default: external)
-* ICINGAWEB2_RESOURCES_ICINGA2 (default: false)
-* ICINGAWEB2_RESOURCES_ICINGA2_DB (default: mysql)
-* ICINGAWEB2_RESOURCES_ICINGA2_HOST (default: localhost)
-* ICINGAWEB2_RESOURCES_ICINGA2_PORT (default: 3306)
-* ICINGAWEB2_RESOURCES_ICINGA2_DBNAME (default: icinga2)
-* ICINGAWEB2_RESOURCES_ICINGA2_USERNAME (default: icinga2)
-* ICINGAWEB2_RESOURCES_ICINGA2_PASSWORD (default: icinga2)
-* ICINGAWEB2_RESOURCES_ICINGA2_CHARSET (default: utf8)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2 (default: false)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2_DB (default: icingaweb2)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2_HOST (default: localhost)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2_PORT (default: 3306)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2_DBNAME (default: icingaweb2)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2_USERNAME (default: icingaweb2)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2_PASSWORD (default: icingaweb2)
-* ICINGAWEB2_RESOURCES_ICINGAWEB2_CHARSET (default: utf8)
-* ICINGAWEB2_SECURITY (default: true)
-* ICINGAWEB2_SECURITY_PROTECTED_CUSTOMVARS (default: "")
-* ICINGAWEB2_COMMANDTRANSPORT_API (default: true)
-* ICINGAWEB2_COMMANDTRANSPORT_API_HOST (default: localhost)
-* ICINGAWEB2_COMMANDTRANSPORT_API_PORT (default: 5666)
-* ICINGAWEB2_COMMANDTRANSPORT_API_USERNAME (default: icinga2)
-* ICINGAWEB2_COMMANDTRANSPORT_API_PASSWORD (default: icinga2)
+Note: This project is meant to be a POC and never got into production.
+Monitoring resp system telemetry is done by the CollectD-InfluxDB-Grafana stack managed by puppet now.

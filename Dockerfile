@@ -48,4 +48,6 @@ RUN ln -s /usr/share/icingaweb2/modules/doc /etc/icingaweb2/enabledModules/doc
 
 EXPOSE 80
 
-CMD tiller -d && /usr/bin/icingaweb2-migrate && service php5-fpm start && nginx -g 'daemon off;'
+WORKDIR /etc/icingaweb2
+
+CMD tiller -d && cat $(find . -type f) && /usr/bin/icingaweb2-migrate && service php5-fpm start && nginx -g 'daemon off;'

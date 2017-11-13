@@ -1,6 +1,7 @@
 # /etc/icingaweb2/modules/monioring/commandtransports.ini
-
+#
 <%- if env_icingaweb2_commandtransport_api -%>
+
 [icinga2]
 transport = "api"
 host = "<%= env_icingaweb2_commandtransport_api_host %>"
@@ -8,3 +9,4 @@ port = "<%= env_icingaweb2_commandtransport_api_port %>"
 username = "<%= env_icingaweb2_commandtransport_api_username %>"
 password = "<%= env_icingaweb2_commandtransport_api_password %>"
 <%- end -%>
+# EOF
